@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+   
+</head>
+<body>
+    <div id="root">hello</div>
+</body>
+<script type="text/babel">
+    function TaskList() {
+      const [tasks, setTasks] = React.useState([]);
+
+      const fetchData = () => {
+        axios.get("https://data-46361-default-rtdb.asia-southeast1.firebasedatabase.app/Users.json")
+          .then((response)=>{
+            let tasks=Object.entries(response.data).map(([id,data])=>{
+                return {id,...data}
+            })
+            setTasks(tasks)
+          })
+          .catch((error) => console.log("Error fetching tasks:", error));
+      };
+
+      React.useEffect(() => {
+        fetchData();
+      }, []);
+
+      return (
+        <div>
+          <h1>Task List</h1>
+          <ul>
+            {tasks.map((task) => (
+              <li key={task.id}>{task.name}</li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
+    let root=ReactDOM.createRoot(document.getElementById("root"))
+    root.render(<TaskList/>)
+</script>
+</html>

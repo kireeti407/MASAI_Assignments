@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+   
+</head>
+<body>
+    <div id="root">hello</div>
+</body>
+<script type="text/babel">
+    const {useState,useRef}=React
+    function App(){
+        const [name,setName]=useState("")
+        const [email,setEmail]=useState([])
+        const clear= useRef()
+        function submit(e){
+            e.preventDefault()
+            if(!name){
+                alert("Empty input is not accept")
+            }
+            else{
+                email.push(clear.current.value)
+                setEmail(email)
+                clear.current.value=''
+            }
+
+        }
+        return(
+            <>
+                <form onSubmit={submit}>
+                    <label> Enter name:</label>
+                    <input type="email" name="name" onChange={(e)=>setName(e.target.value)} ref={clear}/>
+                    <input type="submit" />
+                </form>
+                <h1>{name}</h1>
+                <ul>
+                    {email.map((e,i)=>(
+                        <li key={i}>{e}</li>
+                    ))}
+                </ul>
+            </>
+
+        )
+    }
+    let root=ReactDOM.createRoot(document.getElementById("root"))
+    root.render(<App/>)
+</script>
+</html>

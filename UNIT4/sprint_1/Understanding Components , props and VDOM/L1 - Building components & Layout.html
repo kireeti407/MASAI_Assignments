@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        #main{
+            display: flex;
+            align-items: center;
+            justify-content:space-around
+
+        }
+        #header{
+            display: grid;
+            grid-template-columns: repeat(2,50%);
+            text-align: center;
+            max-width: 90%;
+            margin: auto;
+        }
+        #main>button{
+            background-color: #CBD5E0;
+            color: #9F7AEA;
+            border: none;
+            height: 40px;
+            border-radius: 5px;
+        }
+       
+    </style>
+</head>
+<body>
+    <div id="root">
+    </div>
+</body>
+    <script type="text/babel">
+        function Header(){
+            return(
+                <div id="header">
+                    <h1>The Right Plane for <color style={{color:"#9F7AEA"}}>Your Business</color></h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure consectetur omnis quisquam eius iste possimus amet non sint voluptatum. Eum illo velit eaque expedita possimus saepe laudantium libero dolorum hic!</p>
+                </div>
+            )
+        }
+        function Main(props){
+            return(
+                <div id="main">
+                    <h4>{props.data.title}</h4>
+                    <ul>
+                        <li>{props.data.ul.l1}</li>
+                        <li>{props.data.ul.l2}</li>
+                        <li>{props.data.ul.l3}</li>
+                    </ul>
+                    <h1>{props.data.h2}</h1>
+                    <button>get Started</button>
+
+                </div>
+            )
+        }
+        function App(){
+            return(
+                <>
+                    <Header/>
+                    <Main data={{title:"starter",ul:{l1:"1 lorem ipsum",l2:"lorem, ipsum dolor",l3:"monthly Updates"},h2:"Free"}}/>
+                    <Main data={{title:"Lorem Plus",ul:{l1:"1 lorem ipsum",l2:"lorem, ipsum dolor",l3:"monthly Updates"},h2:"$32.00"}}/>
+                    <Main data={{title:"Lorem Pro",ul:{l1:"1 lorem ipsum",l2:"lorem, ipsum dolor",l3:"monthly Updates"},h2:"$50.00"}}/>
+                </>
+            )
+        }
+        let root=ReactDOM.createRoot(document.getElementById("root"))
+        root.render(<App/>)
+    </script>
+</html>

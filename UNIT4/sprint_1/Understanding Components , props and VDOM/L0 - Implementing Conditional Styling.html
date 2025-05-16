@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root">
+
+    </div>
+</body>
+<script type="text/babel">
+    const {useState}=React
+    function App(){
+        let [color,setColor]=useState("blue")
+        let [toggle,settoggle]=useState(false)
+        function changec(){
+            if(toggle){
+                setColor("blue")
+                settoggle(false)
+            }
+            else{
+                setColor("red")
+                settoggle(true)
+            }
+        }
+        return(
+            <button style={{backgroundColor:color,width:"100px",height:"50px",border:"none",color:"white"}} onClick={changec}>Click</button>
+        )
+    }
+    let root=ReactDOM.createRoot(document.getElementById("root"))
+    root.render(<App/>)
+</script>
+</html>

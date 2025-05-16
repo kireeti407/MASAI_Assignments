@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+   
+</head>
+<body>
+    <div id="root">hello</div>
+</body>
+    <script type="text/babel"> 
+        const {useState}=React
+        function App(){
+            const [item,setItem]=useState({item:"",quantity:""})
+            const [itemlist,setItemlist]=useState([])
+            function change(e){
+                let name=e.target.name
+                let value=e.target.value
+                setItem({...item,[name]:value})
+            }
+            function add(){
+                itemlist.push(item)
+            }
+            const removeItem = (index) => {
+              const newList = itemList.filter((_, i) => i !== index);
+              setItemList(newList);
+            };
+            return(
+                <div>
+                    <label>Add items:</label><input type="text" name="item" onChange={change}></input><br></br>
+                    <label>Quantity:</label><input type="number" name="quantity" onChange={change}></input>
+                    <button onClick={add}>add</button>
+                    <h1>List of items:</h1>
+                    <ul>
+                        {itemlist.map((entry, index) => (
+                          <li key={index}>
+                            {entry.item} - {entry.quantity}
+                            <button onClick={() => removeItem(index)}>Remove</button>
+                          </li>
+                        ))}
+                    </ul>
+                {itemlist.length > 0 && (
+                  <button onClick={clearAll}>Clear All</button>
+                )}
+                    
+
+                </div>
+            )
+        }
+        let root=ReactDOM.createRoot(document.getElementById("root"))
+        root.render(<App/>)
+    </script>
+</html>

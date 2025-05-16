@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+   
+</head>
+<body>
+    <div id="root">hello</div>
+</body>
+<script type="text/babel">
+    function TaskList() {
+      const [tasks, setTasks] = React.useState([]);
+      const [user,setUser]=React.useState({name:"",email:""})
+      const del=React.useRef()
+     function change(e){
+        let name=e.target.name
+        let value=e.target.value
+        setUser({...user,[name]:value})
+     }
+      async function add(e){
+        e.preventDefault()
+        await axios.post("https://data-46361-default-rtdb.asia-southeast1.firebasedatabase.app/Users.json",user)
+        setUser({name:"",email:""})
+        fetchData()
+
+      }
+      async function delet(e){
+            console.log(del.current.id)
+            // await axios.delete("https://data-46361-default-rtdb.asia-southeast1.firebasedatabase.app/Users.json",del.current.value)
+            // fetchData()
+      }
+      const fetchData = () => {
+        axios.get("https://data-46361-default-rtdb.asia-southeast1.firebasedatabase.app/Users.json")
+          .then((response)=>{
+            let tasks=Object.entries(response.data).map(([id,data])=>{
+                return {id,...data}
+            })
+            setTasks(tasks)
+          })
+          .catch((error) => console.log("Error fetching tasks:", error));
+      };
+
+      React.useEffect(() => {
+        fetchData();
+      }, []);
+
+      return (
+        <div>
+          <h1>Users</h1>
+          <ul>
+            {tasks.map((task) => (
+              <li key={task.id}>{task.name} <button> Delete</button></li>
+            ))}
+          </ul>
+          <h1>Add user</h1>
+          <form onSubmit={add}>
+             <input type="text" name="name" placeholder="Enter your name" onChange={change}/>
+             <input type="email" name="email" placeholder="enter email" onChange={change}/>
+            <input type="submit" value="submit"/>
+            </form>
+        </div>
+      );
+    }
+    let root=ReactDOM.createRoot(document.getElementById("root"))
+    root.render(<TaskList/>)
+</script>
+</html>

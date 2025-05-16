@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="root" >hello</div>
+</body>
+<script type="text/babel">
+    const blogs = [
+      { title: "React Basics", content: "Learn the basics of React.", isFeatured: true },
+      { title: "Advanced React", content: "Delve deeper into React.", isFeatured: false },
+      { title: "React Performance Tips", content: "Optimize your React apps.", isFeatured: true },
+    ];
+
+
+    function App(props){
+        return(
+            <div>
+                {props.blogs.map((e,i)=>
+                    <div style={{backgroundColor:(e.isFeatured?"#ffffe0":"white")}} key={i}>
+                        <h3>{e.title}</h3>
+                        <p>{e.content}</p>
+                    </div>
+            )}
+            </div>
+        )
+    }
+    let root=ReactDOM.createRoot(document.getElementById("root"))
+    root.render(<App blogs={blogs}/>)
+</script>
+</html>
