@@ -1,0 +1,11 @@
+#user{
+  margin-left: 20%;
+  display: grid;
+  grid-template-columns: repeat(3,300px);
+  /* grid-template-columns: repeat(3,300px); */
+  gap: 20px;
+}
+#user>div{
+  border: 1px solid white;
+  text-align: center;
+}
