@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Center } from '@chakra-ui/react';
-import ProfileCard from './ProfileCard'
+import ProfileCard from 'ProfileCard'
 
 function App() {
   return (
