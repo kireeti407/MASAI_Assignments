@@ -9,6 +9,7 @@ export default  function Auth({children}){
     const auth = getAuth(app);
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            localStorage.setItem("email",currentUser?currentUser.email:"null")
             setUser(currentUser);
         });
         return () => unsubscribe(); 

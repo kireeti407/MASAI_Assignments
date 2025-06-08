@@ -10,6 +10,7 @@ export default function Navbar({set}){
     const navigate=useNavigate()
     const user=useContext(AuthContext)
     const Logout=async ()=>{
+        localStorage.setItem("email","")
         await signOut(auth)
         navigate("/")
     }

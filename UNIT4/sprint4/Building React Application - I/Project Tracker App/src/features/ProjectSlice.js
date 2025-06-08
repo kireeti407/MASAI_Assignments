@@ -6,7 +6,8 @@ export const Project=createAsyncThunk("Project/details",async()=>{
     let item=Object.entries(res.data).map(([id,e])=>{
         return {id:id,...e}
     })
-    return item
+    
+    return item.filter(e=>localStorage.getItem("email")==e.email)
 })
 export const addProject=createAsyncThunk("Project/Add",async(data)=>{
     let res=await axios.post("https://jobportal-ac517-default-rtdb.asia-southeast1.firebasedatabase.app/Projects.json",data)
@@ -34,6 +35,7 @@ const ProjectSlice= createSlice({
         builder
             .addCase(Project.fulfilled,(state,action)=>{
                 state.loading=false
+                console.log(action.payload)
                 state.data=action.payload
             })
             .addCase(Project.pending,(state)=>{
