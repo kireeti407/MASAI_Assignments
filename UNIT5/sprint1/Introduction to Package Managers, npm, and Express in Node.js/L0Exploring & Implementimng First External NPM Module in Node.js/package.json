@@ -1,0 +1,6 @@
+{
+  "description": "",
+  "dependencies": {
+    "boxen": "^5.1.2"
+  }
+}
