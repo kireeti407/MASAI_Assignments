@@ -1,0 +1,10 @@
+{
+  "students": [
+    {
+      "id": 2,
+      "name": "Aarav Sharma",
+      "course": "Full Stack Web",
+      "batch": "April 2025"
+    }
+  ]
+}
