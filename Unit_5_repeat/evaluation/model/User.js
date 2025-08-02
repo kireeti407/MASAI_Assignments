@@ -6,7 +6,7 @@ const Member=new mongoose.Schema({
         require:true
     },
     email:{
-        type:true,
+        type:String,
         require:true
     },
    address:{
