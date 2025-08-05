@@ -2,7 +2,7 @@ const express=require("express")
 
 const{adduser,getusers}=require('../controller/user.controller')
 
-const userrouter=express.Router()
+const userrouter=express.router()
 
 userrouter.post('/users',adduser)
 
