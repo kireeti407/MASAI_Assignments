@@ -1,6 +1,7 @@
 
 import './App.css';
 import Nav from './components/nav';
+import Footer from './components/footer';
 import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 
 import Home from './pages/home';
@@ -20,10 +21,10 @@ import VehicleDetails from './pages/vehicleDetails';
 function AppContent() {
   const location = useLocation();
   const navigate = useNavigate();
-  // Determine category for search bar
+ 
   let category = "films";
   if (location.pathname.startsWith("/people")) category = "people";
-  // Only films and people are searchable as per requirements
+
   const handleSelect = (item) => {
     if (category === "people") {
       navigate(`/people/${item.id || item.url.split("/").filter(Boolean).pop()}`);
@@ -49,6 +50,7 @@ function AppContent() {
         <Route path="/vehicles" element={<Vehicles />} />
         <Route path="/vehicles/:id" element={<VehicleDetails />} />
       </Routes>
+      <Footer />
     </>
   );
 }
