@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const CreditCardPayment_1 = require("./paymentStrategies/CreditCardPayment");
+const CryptoPayment_1 = require("./paymentStrategies/CryptoPayment");
+const PayPalPayment_1 = require("./paymentStrategies/PayPalPayment");
+const types_1 = require("./types");
+let creditCardPayment = new CreditCardPayment_1.CreditCardPayment();
+let paymentProcessor = new types_1.PaymentProcessor(creditCardPayment);
+paymentProcessor.processPayment({ cardNumber: 100, expiryDate: "Tommorrow", cvv: "Correct" }, 400);
+paymentProcessor.setPaymentStrategy(new PayPalPayment_1.PayPalPayment());
+paymentProcessor.processPayment({ email: "aswarth03@gmail.com" }, 400);
+paymentProcessor.setPaymentStrategy(new CryptoPayment_1.CryptoPayment);
+paymentProcessor.processPayment({ walletAddress: "ATP" }, 500);

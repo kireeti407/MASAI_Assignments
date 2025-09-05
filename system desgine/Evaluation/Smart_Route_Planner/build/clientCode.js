@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const RouteTypes_1 = require("./RouteTypes");
+const types_1 = require("./types");
+let fastestRoute = new RouteTypes_1.FastestRoute();
+let shortestDistanceRoute = new RouteTypes_1.ShortestDistanceRoute();
+let scenicRoute = new RouteTypes_1.ScenicRoute();
+let routePlanner = new types_1.RoutePlanner(fastestRoute);
+routePlanner.getRoute();
+routePlanner.setRouteStrategy(scenicRoute);
+routePlanner.getRoute();

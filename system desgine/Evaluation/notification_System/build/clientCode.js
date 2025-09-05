@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const types_1 = require("./types");
+const subscribers_1 = require("./subscribers");
+let blog = new types_1.Blog();
+let emailSubscriber = new subscribers_1.EmailSubscriber();
+let smsSubscriber = new subscribers_1.SMSSubscriber();
+blog.subscribe(emailSubscriber);
+blog.subscribe(smsSubscriber);
+blog.publish("Design Patterns in JavaScript");
+blog.publish("Observer Pattern Simplified");
+// blog.unsubscribe(smsSubscriber);

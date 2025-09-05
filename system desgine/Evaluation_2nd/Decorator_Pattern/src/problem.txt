@@ -1,0 +1,27 @@
+Problem Statement:
+
+You're building a system for managing course subscriptions on an e-learning platform. 
+The platform offers a base subscription, which can be enhanced with optional add-on features. 
+The pricing and feature list must be calculated dynamically based on the combination of add-ons selected.
+
+Base Requirements:
+
+Create an abstract class CourseSubscription with the following methods:
+getCost(): number
+getFeatures(): string[]
+Implement a concrete class BasicSubscription:
+Cost: ₹499
+Features: ['Access to all basic courses']
+Decorator Requirements:
+
+Implement the following decorators that wrap a CourseSubscription:
+CertificateAddon: Adds ₹200 to the cost and the feature 'Official Certificate of Completion'.
+DoubtSupportAddon: Adds ₹300 to the cost and the feature '24/7 Doubt Support via Chat'.
+MentorAccessAddon: Adds ₹500 to the cost and the feature 'Weekly 1-on-1 Mentor Sessions'.
+Promotional Bundle Discount: The platform wants to offer a special deal. If a user subscribes to both DoubtSupportAddon and MentorAccessAddon in the same package,
+ a 15% discount should be applied to the total cost of the entire subscription package (base + all add-ons).
+Your implementation must be able to inspect the chain of decorators to determine if the discount condition is met before calculating the final cost.
+Example Usage:
+
+A basic subscription with a certificate should have its cost and features calculated correctly.
+A subscription with all three add-ons should correctly apply the 15% promotional discount to the final price.
