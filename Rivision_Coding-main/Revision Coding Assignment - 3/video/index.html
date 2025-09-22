@@ -1,0 +1,61 @@
+<!-- Explanation Points:
+
+What is the DOM and its role in web development.
+
+How JavaScript interacts with the DOM.
+
+Different methods to access DOM elements:
+
+getElementById
+getElementsByClassName
+getElementsByTagName
+querySelector
+querySelectorAll
+For each method, write a live code example while explaining. (Do not use pre-written code. Type and explain as you go.) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="ptag">para1</h1>
+    <h2 id="ptag">para1</h2>
+
+    <!-- class -->
+
+    <p class="demo">para</p>
+    <h1 class="demo">heading1 </h1>
+    <h2 class="demo"> heading 2</h2>
+
+
+    
+</body>
+<script>
+    let p=document.getElementById('ptag')
+    p.style.color='red'
+
+    let clas=document.getElementsByClassName('demo')
+    console.log(clas[0])
+
+    for(let i=0;i<clas.length;i++){
+        clas[i].style.color='green'
+    }
+
+    let ta=document.getElementsByTagName('p')
+    // ta.style.color='red'
+    console.log(ta)
+    for(let i=0;i<ta.length;i++){
+        ta[i].style.color='red'
+    }
+
+
+
+ 
+
+
+</script>
+
+</html>

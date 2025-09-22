@@ -1,0 +1,55 @@
+body{
+    margin: 0%;
+    
+}
+header{
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    background-color: lightgray;
+    padding: 0%;
+    align-items: center;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 0% 20px;
+    margin-top: 20px;
+    
+}
+#inputbox{
+    display: flex;
+    gap: 20px;
+
+}
+input{
+    height: 40px;
+    width: 200px;
+    border-radius: 5px;
+}
+button{
+    background-color: lightblue;
+    border-radius: 5px;
+    border-style: none;
+}
+
+#container{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#container>div{
+    display: flex;
+    gap: 10px;
+
+}
+#container>div>p{
+    margin: 0%;
+}
+#container>div>button{
+    height: 25px;
+    align-self: center;
+}
