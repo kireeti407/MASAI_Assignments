@@ -1,0 +1,90 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    color: #e94560;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.loader {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid #514b82;
+    animation: l20-1 0.8s infinite linear alternate, l20-2 1.6s infinite linear;
+    margin: 50px auto;
+}
+
+@keyframes l20-1 {
+    0% { clip-path: polygon(50% 50%, 0 0, 50% 0, 50% 0, 50% 0, 50% 0) }
+    12.5% { clip-path: polygon(50% 50%, 0 0, 50% 0, 100% 0, 100% 0, 100% 0) }
+    25% { clip-path: polygon(50% 50%, 0 0, 50% 0, 100% 0, 100% 50%, 100% 50%) }
+    37.5% { clip-path: polygon(50% 50%, 0 0, 50% 0, 100% 0, 100% 50%, 100% 100%) }
+    50% { clip-path: polygon(50% 50%, 0 0, 50% 0, 100% 0, 100% 50%, 100% 100%) }
+    62.5% { clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 50%, 0 100%) }
+    75% { clip-path: polygon(50% 50%, 0 50%, 0 50%, 0 50%, 0 50%, 0 100%) }
+    87.5% { clip-path: polygon(50% 50%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%) }
+    100% { clip-path: polygon(50% 50%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%) }
+}
+
+@keyframes l20-2 {
+    0% { transform: scaleY(1) rotate(0deg) }
+    49.99% { transform: scaleY(1) rotate(135deg) }
+    50% { transform: scaleY(-1) rotate(-135deg) }
+    100% { transform: scaleY(-1) rotate(-315deg) }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background-color: #16213e;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(233, 69, 96, 0.3);
+}
+
+.card img {
+    width: 100%;
+    height: 375px;
+    object-fit: cover;
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.card-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+    color: #f1f1f1;
+}
+
+.card-info p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #a9a9a9;
+    text-transform: capitalize;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Meal Finder</h1>
+        <div class="controls">
+            <select id="category-filter">
+                <option value="all">All Categories</option>
+            </select>cv
+            <!-- Added a search input field -->
+            <input type="text" id="search-input" placeholder="Search meals by name...">
+            <select id="area-filter">
+                <option value="all">All Areas</option>
+            </select>
+            <select id="sort-by">
+                <option value="name-asc">Sort by Name (A-Z)</option>
+                <option value="name-desc">Sort by Name (Z-A)</option>
+            </select>
+        </div>
+        <div id="meals-container" class="meals-grid"></div>
+        <div id="pagination-container" class="pagination"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
