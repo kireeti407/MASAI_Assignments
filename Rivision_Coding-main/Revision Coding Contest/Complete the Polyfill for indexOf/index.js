@@ -1,6 +1,6 @@
 if (!Array.prototype.indexOf) {
     Array.prototype.indexOf = function(searchElement, fromIndex) {
-        // Your code here to implement the indexOf polyfill
+    
         var k;
         var len = this.length >>> 0;
         if (len === 0) {
