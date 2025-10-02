@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-const allRoutes =() => {
+const AllRoutes =() => {
     return (
             <Routes>
                 <Route path="/" element={<Counter/>} />
@@ -10,3 +10,5 @@ const allRoutes =() => {
             </Routes>
     )
 }
+
+export default AllRoutes
