@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
+import TaskModal from './TaskModal';
 import './Task.css';
 
-const Task = ({ task, columnId }) => {
+const Task = ({ task, columnId, boardId, onTaskUpdated, onTaskDeleted }) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const { 
         attributes, 
         listeners, 
@@ -12,7 +14,7 @@ const Task = ({ task, columnId }) => {
         transition 
     } = useSortable({ 
         id: task._id,
-        data: { columnId } // Pass columnId for drag-and-drop logic
+        data: { columnId } 
     });
 
     const style = {
@@ -20,18 +22,33 @@ const Task = ({ task, columnId }) => {
         transition,
     };
 
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
+
     return (
-        <div 
-            ref={setNodeRef} 
-            style={style} 
-            {...attributes} 
-            {...listeners}
-            className="task-card"
-        >
-            <h4 className="task-title">{task.title}</h4>
-            <p className="task-description">{task.description}</p>
-            {/* Add more details like assignee and due date later */}
-        </div>
+        <>
+            <div 
+                ref={setNodeRef} 
+                style={style} 
+                {...attributes} 
+                {...listeners}
+                className="task-card"
+                onClick={openModal}
+            >
+                <h4 className="task-title">{task.title}</h4>
+                <p className="task-description">{task.description}</p>
+            </div>
+            {isModalOpen && (
+                <TaskModal 
+                    task={task}
+                    columnId={columnId}
+                    boardId={boardId}
+                    onClose={closeModal}
+                    onTaskUpdated={onTaskUpdated}
+                    onTaskDeleted={onTaskDeleted}
+                />
+            )}
+        </>
     );
 };
 
