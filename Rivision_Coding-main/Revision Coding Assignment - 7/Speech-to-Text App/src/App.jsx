@@ -1,7 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
 import './App.css'
-
-// Check for browser support for the Web Speech API
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const isSpeechRecognitionSupported = !!SpeechRecognition;
 
@@ -31,9 +29,9 @@ function App() {
     };
 
     recognition.onend = () => {
-      // Only stop if it was intentionally stopped by the user
+    
       if (isRecording) {
-        recognition.start(); // Restart if it stops automatically
+        recognition.start();
       }
     };
 
@@ -43,17 +41,16 @@ function App() {
 
     recognitionRef.current = recognition;
 
-    // Cleanup function
     return () => {
       recognition.stop();
     };
-  }, [isRecording]); // Rerun effect if isRecording changes to handle restart logic
+  }, [isRecording]); 
 
   const toggleRecording = () => {
     if (isRecording) {
       recognitionRef.current.stop();
     } else {
-      setTranscript(''); // Clear previous transcript
+      setTranscript(''); 
       recognitionRef.current.start();
     }
     setIsRecording(!isRecording);

@@ -1,0 +1,17 @@
+.board-page-container {
+    padding: 2rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.board-title {
+    margin-bottom: 2rem;
+}
+
+.columns-container {
+    display: flex;
+    gap: 1.5rem;
+    flex-grow: 1;
+    overflow-x: auto;
+}
