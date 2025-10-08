@@ -1,0 +1,42 @@
+.App {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.joke-container {
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+}
+
+.joke {
+  margin-top: 20px;
+}
+
+.multiple-jokes {
+  margin: 20px auto;
+}
+
+.history-container {
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
