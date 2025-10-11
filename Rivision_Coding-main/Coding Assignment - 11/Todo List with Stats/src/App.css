@@ -1,0 +1,84 @@
+.App {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .todo-app {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #f4f4f4;
+    padding: 1rem;
+    border-radius: 5px;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  .todo-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+  
+  .todo-form {
+    display: flex;
+    margin-bottom: 1rem;
+  }
+  
+  .todo-form input {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .todo-form button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .todo-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .todo-item.completed span {
+    text-decoration: line-through;
+    color: #888;
+  }
+  
+  .todo-item span {
+    cursor: pointer;
+  }
+  
+  .todo-item button {
+    margin-left: 0.5rem;
+    padding: 0.3rem 0.6rem;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .todo-item button:first-of-type {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .todo-item button:last-of-type {
+    background-color: #dc3545;
+    color: white;
+  }
